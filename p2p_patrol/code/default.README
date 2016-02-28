@@ -1,0 +1,41 @@
+###################################### Graph_file_format ############################################################
+
+	line1 -> num_vertices num_edges num_targets num_IDS
+
+	#### target nodes with their respective payoff ######
+	line2 -> target_node1 payoff1
+	line3 -> target_node2 payoff2
+	...
+	...
+	linen+1 -> target_noden payoffn
+	
+	#### Enter source nodes separated by spaces ##########
+	source1 source2 ...	
+	
+	#### edges followed by their weights ################
+	linen+2 ->nodex nodey weight_x_y
+	linen+3 ->nodeq noder weight_q_r
+	...
+	...
+	
+###################################################################################################################
+
+##Generate graph
+	TO generate a graph run "graph_gen.py" as root 
+	Enter inputs asked
+	A graph_file named "new_graph" is generated with the above described format
+	
+
+#If u are giving a custom input graph file then just replace the value in "graph_file" variable with appropriate path(path of the custom-graph_file) in "trivial.py" or "non-trivial.py" files as required 	
+###################################################################################################################
+
+#For trivial solution  run "trivial.py"
+#For non_trivial solution run "non_trivial.py" 
+
+###################################################################################################################
+To change the number of IDSs change the graph_format_file 
+
+
+##################################################################################################################
+
+for step by step analysis just uncomment lines 316,340,346

@@ -1,0 +1,72 @@
+####################################   Installation    ################################################################
+We need networkx, igraph and Gambit installed. 
+We also need gdflib library to write out .gdf files. Get it using pip install gdflib.
+
+Install networkx - apt-get install python-networkx or pip install networkx
+
+Add the Launchpad repository of igraph to apt:
+	sudo add-apt-repository ppa:igraph/ppa
+Then:
+	sudo apt-get update
+	sudo apt-get install python-igraph
+
+Download Gambit source code. Prerequisite packages include setuptools, Cython, IPython, and scipy. Cython can be installed through apt-get. 
+scipy can be installed through apt-get (python-scipy). IPython was not installed, and there were no issues. 
+Default version of cython (through apt-get) might be old. Better to add its repository (add-apt-repository ppa:cython-dev/master-ppa) 
+and then do apt-get update, and then install it (apt-get install cython)
+ 
+For Gambit:
+Move inside source code directory
+	./configure
+	make
+	sudo make install
+Move to src/python directory:
+	cd src/python
+Then:
+	python setup.py build
+	sudo python setup.py install
+(From http://www.gambit-project.org/gambit13/build.html#build-python)
+
+###################################### Graph_file_format ############################################################
+file: graph_weights.txt
+
+	line1 -> num_vertices num_edges num_targets num_IDS
+
+	#### target nodes with their respective payoff ######
+	line2 -> target_node1 payoff1
+	line3 -> target_node2 payoff2
+	...
+	...
+	linen+1 -> target_noden payoffn
+	
+	#### Enter source nodes separated by spaces ##########
+	source1 source2 ...	
+	
+	#### edges followed by their weights ################
+	linen+2 ->nodex nodey weight_x_y
+	linen+3 ->nodeq noder weight_q_r
+	...
+	...
+	
+###################################################################################################################
+
+##Generate graph
+	TO generate a graph run "graph_gen.py" 
+	Enter inputs asked
+	A graph_file named "new_graph" is generated with the above described format
+	
+
+#If u are giving a custom input graph file then just replace the value in "graph_file" variable with 
+appropriate path(path of the custom-graph_file) in "trivial.py" or "non-trivial.py" files as required 	
+###################################################################################################################
+
+#For trivial solution  run "trivial.py"
+#For non_trivial solution run "non_trivial.py" 
+
+###################################################################################################################
+To change the number of IDSs change the graph_format_file 
+
+
+##################################################################################################################
+
+for step by step analysis just uncomment lines 316,340,346
